@@ -25,6 +25,12 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	float TargetYaw = 90.f;
-		
+	float InitialYaw;
+	float CurrentYaw;
+	// Determine the relative amount that this door will open in degrees limited to -100.0 and 100.0
+	UPROPERTY(EditAnywhere, meta = (ClampMin = "-100.0", ClampMax = "100.0", UIMin = "-100.0", UIMax = "100.0"))
+	float TargetYaw;
+	// The speed in which the door will open
+	UPROPERTY(EditAnywhere)
+	float OpenSpeed;
 };
