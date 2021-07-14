@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/TriggerVolume.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
 #include "OpenDoor.generated.h"
 
 
@@ -25,6 +27,8 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void OpenDoor(float DeltaTime);
+	void CloseDoor(float DeltaTime);
+	void ChangeDoorStatus(float DesiredYaw, float DeltaTime, float SpeedOfChange);
 
 private:
 	float InitialYaw;
@@ -35,6 +39,8 @@ private:
 	// The speed in which the door will open
 	UPROPERTY(EditAnywhere)
 	float OpenSpeed;
+	UPROPERTY(EditAnywhere)
+	float CloseSpeed;
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 	UPROPERTY(EditAnywhere)
