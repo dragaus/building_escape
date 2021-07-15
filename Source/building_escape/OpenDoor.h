@@ -35,19 +35,20 @@ private:
 	float CurrentYaw;
 	// Determine the relative amount that this door will open in degrees limited to -100.0 and 100.0
 	UPROPERTY(EditAnywhere, meta = (ClampMin = "-100.0", ClampMax = "100.0", UIMin = "-100.0", UIMax = "100.0"))
-	float TargetYaw;
-	// The speed in which the door will open
+	float TargetYaw = 90.f;
+
 	UPROPERTY(EditAnywhere)
-	float OpenSpeed;
+	float OpenSpeed = .5f;
 	UPROPERTY(EditAnywhere)
-	float CloseSpeed;
+	float CloseSpeed = 1.f;
+	
+	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 2.f;
+	float DoorLastOpened = 0.f;
+
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 	UPROPERTY(EditAnywhere)
 	AActor* ActorThatOpens;
-
-	float DoorLastOpened = 0.f;
-	UPROPERTY(EditAnywhere)
-	float DoorCloseDelay = 2.f;
 };
