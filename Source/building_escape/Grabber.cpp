@@ -18,9 +18,7 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	
+	UE_LOG(LogTemp, Display, TEXT("Grabber report for heavy lifting"));
 }
 
 
